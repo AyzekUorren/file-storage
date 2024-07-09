@@ -1,4 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from './user.entity';
+import { File } from './file.entity';
+import { Folder } from './folder.entity';
 
 @Entity()
 export class Permission {
@@ -6,12 +9,15 @@ export class Permission {
   id: number;
 
   @Column()
+  @OneToOne(() => User)
   userId: number;
 
   @Column({ nullable: true })
+  @OneToOne(() => File)
   fileId: number;
 
   @Column({ nullable: true })
+  @OneToOne(() => Folder)
   folderId: number;
 
   @Column({ default: false })

@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Folder } from './folder.entity';
 
 @Entity()
 export class File {
@@ -15,6 +17,7 @@ export class File {
   name: string;
 
   @Column()
+  @OneToOne(() => Folder)
   folderId: number;
 
   @Column()

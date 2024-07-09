@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -15,6 +16,7 @@ export class Folder {
   name: string;
 
   @Column({ nullable: true })
+  @OneToOne(() => Folder)
   parentId: number;
 
   @CreateDateColumn()
