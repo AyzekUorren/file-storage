@@ -16,7 +16,7 @@ export class Folder {
   name: string;
 
   @Column({ nullable: true })
-  @OneToOne(() => Folder)
+  @OneToOne(() => Folder, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
   parentId: number;
 
   @CreateDateColumn()

@@ -9,15 +9,15 @@ export class Permission {
   id: number;
 
   @Column()
-  @OneToOne(() => User)
+  @OneToOne(() => User, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
   userId: number;
 
   @Column({ nullable: true })
-  @OneToOne(() => File)
+  @OneToOne(() => File, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
   fileId: number;
 
   @Column({ nullable: true })
-  @OneToOne(() => Folder)
+  @OneToOne(() => Folder, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
   folderId: number;
 
   @Column({ default: false })

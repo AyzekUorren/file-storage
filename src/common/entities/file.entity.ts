@@ -17,7 +17,7 @@ export class File {
   name: string;
 
   @Column()
-  @OneToOne(() => Folder)
+  @OneToOne(() => Folder, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
   folderId: number;
 
   @Column()
