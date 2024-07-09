@@ -1,10 +1,26 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import databaseConfig from './config/database.config';
+import { BullModule } from '@nestjs/bull';
+import { ThrottlerModule } from '@nestjs/throttler';
+import bullConfig from './config/bull.config';
+import videoCompressionQueueConfig from './config/video-compression-queue.config';
+import { VideoCompressionProcessor } from './processors/video-compressio.processor';
+import { AuthModule } from './auth/auth.module';
+import throttlersConfig from './config/throttlers.config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    ThrottlerModule.forRoot(throttlersConfig()),
+    TypeOrmModule.forRoot(databaseConfig()),
+    BullModule.forRoot(bullConfig()),
+    BullModule.registerQueue(videoCompressionQueueConfig()),
+    AuthModule,
+  ],
+  providers: [VideoCompressionProcessor],
 })
 export class AppModule {}
