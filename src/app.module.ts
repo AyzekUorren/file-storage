@@ -10,6 +10,7 @@ import { VideoCompressionProcessor } from './processors/video-compressio.process
 import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
 import { FoldersModule } from './folders/folders.module';
+import { PermissionsModule } from './permissions/permissions.module';
 import throttlersConfig from './config/throttlers.config';
 
 @Module({
@@ -24,6 +25,7 @@ import throttlersConfig from './config/throttlers.config';
     AuthModule,
     FilesModule,
     FoldersModule,
+    PermissionsModule,
   ],
   providers: [VideoCompressionProcessor],
 })
