@@ -12,11 +12,19 @@ import { FilesModule } from './files/files.module';
 import { FoldersModule } from './folders/folders.module';
 import { PermissionsModule } from './permissions/permissions.module';
 import throttlersConfig from './config/throttlers.config';
+import googleConfig from './config/google.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      load: [
+        googleConfig,
+        bullConfig,
+        databaseConfig,
+        videoCompressionQueueConfig,
+        throttlersConfig,
+      ],
     }),
     ThrottlerModule.forRoot(throttlersConfig()),
     TypeOrmModule.forRoot(databaseConfig()),

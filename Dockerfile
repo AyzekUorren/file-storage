@@ -1,4 +1,4 @@
-FROM node:20.0.0-alpine AS build
+FROM node:20.15.0 AS build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:20.0.0-alpine
+FROM node:20.15.0
 
 WORKDIR /app
 

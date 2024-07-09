@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import { Queue } from 'bull';
-import { BullQueues } from 'src/common/constants/bull-queues';
+import { BullQueues } from 'src/common/enums/bull-queues';
 
 @Injectable()
 export class VideoService {

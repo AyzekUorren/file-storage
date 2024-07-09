@@ -6,8 +6,8 @@ export default registerAs(
   (): ThrottlerModuleOptions => ({
     throttlers: [
       {
-        ttl: 60000,
-        limit: 10,
+        ttl: parseInt(process.env.TTL_Limit) || 60000,
+        limit: parseInt(process.env.THROTTLER_LIMIT) || 10,
       },
     ],
   }),

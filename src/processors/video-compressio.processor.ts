@@ -1,7 +1,7 @@
 import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
 import { Logger } from '@nestjs/common';
-import { BullQueues } from 'src/common/constants/bull-queues';
+import { BullQueues } from 'src/common/enums/bull-queues';
 import { Storage } from '@google-cloud/storage';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';

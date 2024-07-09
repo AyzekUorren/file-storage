@@ -10,6 +10,8 @@ export default registerAs(
     username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
     database: process.env.DB_NAME || 'storage_db',
+    migrations: ['dist/database/migrations/*{.ts,.js}'],
+    migrationsRun: true,
     autoLoadEntities: true,
     synchronize: false,
   }),

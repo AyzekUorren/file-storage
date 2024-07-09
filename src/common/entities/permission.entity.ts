@@ -1,4 +1,10 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { User } from './user.entity';
 import { File } from './file.entity';
 import { Folder } from './folder.entity';
@@ -8,17 +14,29 @@ export class Permission {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  @OneToOne(() => User, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
-  userId: number;
+  @OneToOne(() => User, {
+    onDelete: 'CASCADE',
+    onUpdate: 'NO ACTION',
+    nullable: true,
+  })
+  @JoinColumn()
+  user: User;
 
-  @Column({ nullable: true })
-  @OneToOne(() => File, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
-  fileId: number;
+  @OneToOne(() => File, {
+    onDelete: 'CASCADE',
+    onUpdate: 'NO ACTION',
+    nullable: true,
+  })
+  @JoinColumn()
+  file: File;
 
-  @Column({ nullable: true })
-  @OneToOne(() => Folder, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
-  folderId: number;
+  @OneToOne(() => Folder, {
+    onDelete: 'CASCADE',
+    onUpdate: 'NO ACTION',
+    nullable: true,
+  })
+  @JoinColumn()
+  folder: Folder;
 
   @Column({ default: false })
   canView: boolean;

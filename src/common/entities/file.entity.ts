@@ -2,7 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,14 +13,16 @@ export class File {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   name: string;
 
-  @Column()
-  @OneToOne(() => Folder, { onDelete: 'CASCADE', onUpdate: 'NO ACTION' })
-  folderId: number;
+  @ManyToOne(() => Folder, (folder) => folder.files, {
+    onDelete: 'CASCADE',
+    onUpdate: 'NO ACTION',
+  })
+  folder: Folder;
 
-  @Column()
+  @Column({ type: 'varchar' })
   url: string;
 
   @CreateDateColumn()

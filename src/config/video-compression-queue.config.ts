@@ -1,9 +1,9 @@
 import { BullModuleOptions } from '@nestjs/bull';
 import { registerAs } from '@nestjs/config';
-import { BullQueues } from 'src/common/constants/bull-queues';
+import { BullQueues } from 'src/common/enums/bull-queues';
 
 export default registerAs(
-  'video_compression_queue',
+  BullQueues.VideoCompression,
   (): BullModuleOptions => ({
     name: BullQueues.VideoCompression,
   }),
