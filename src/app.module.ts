@@ -9,6 +9,7 @@ import videoCompressionQueueConfig from './config/video-compression-queue.config
 import { VideoCompressionProcessor } from './processors/video-compressio.processor';
 import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
+import { FoldersModule } from './folders/folders.module';
 import throttlersConfig from './config/throttlers.config';
 
 @Module({
@@ -22,6 +23,7 @@ import throttlersConfig from './config/throttlers.config';
     BullModule.registerQueue(videoCompressionQueueConfig()),
     AuthModule,
     FilesModule,
+    FoldersModule,
   ],
   providers: [VideoCompressionProcessor],
 })
