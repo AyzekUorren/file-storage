@@ -26,47 +26,30 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+### Reqirements
+
+- node: >=20.0.0
+- npm: >=10.0.0
+
 ## Installation
+### Prepare Google Cloud Config file in `JSON` format
+- [Google Cloud Storage](https://console.cloud.google.com/storage)
+- Place file in root folder
+- Set env variable for `GOOGLE_BUCKET_NAME`
+  - You can change this directory in `Dockerfile`
+### Prepare Google Client env
+- You can get actual keys in [Google Cloud Console Credentials](https://console.cloud.google.com/apis/credentials)
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `GOOGLE_CLIENT_CALLBACK_URL`
 
+## Build and Run Project
 ```bash
-$ npm install
+$ docker-compose up --build
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Api documentation
+- [API Docs](http://localhost:3000/api)
 
 ## License
 
