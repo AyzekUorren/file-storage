@@ -15,6 +15,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --only=production
 
+COPY google-cloud-key.json ./
 COPY --from=build /app/dist ./dist
 
 CMD ["node", "dist/main"]

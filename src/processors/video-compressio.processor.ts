@@ -17,7 +17,7 @@ export class VideoCompressionProcessor {
 
   constructor(private configService: ConfigService) {
     this.storage = new Storage({
-      keyFilename: 'path/to/your/google-cloud-key.json',
+      keyFilename: 'google-cloud-key.json',
     });
     this.bucketName = configService.get('google.GOOGLE_BUCKET_NAME');
   }

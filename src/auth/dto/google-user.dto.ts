@@ -1,6 +1,4 @@
 export class GoogleUserDto {
-  user: {
-    email: string;
-    googleId: string;
-  };
+  email: string;
+  googleId: string;
 }

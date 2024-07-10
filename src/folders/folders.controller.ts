@@ -6,12 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { FoldersService } from './folders.service';
 import { CreateFolderDto } from './dto/create-folder.dto';
 import { UpdateFolderDto } from './dto/update-folder.dto';
+import { SessionGuard } from '../common/guards/session.guard';
 
 @Controller('folders')
+@UseGuards(SessionGuard)
 export class FoldersController {
   constructor(private readonly foldersService: FoldersService) {}
 

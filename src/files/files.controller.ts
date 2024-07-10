@@ -7,11 +7,14 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
+import { SessionGuard } from '../common/guards/session.guard';
 
 @Controller('files')
+@UseGuards(SessionGuard)
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
 

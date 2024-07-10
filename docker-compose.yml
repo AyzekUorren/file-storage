@@ -19,6 +19,7 @@ services:
       - GOOGLE_CLIENT_SECRET=your-google-client-secret
       - GOOGLE_BUCKET_NAME=your-google-bucket-name
       - GOOGLE_CLIENT_CALLBACK_URL=http://localhost:3000/auth/google/callback
+      - JWT_SECRET=test
     depends_on:
       - database
       - redis
