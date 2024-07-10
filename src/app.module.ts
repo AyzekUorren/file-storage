@@ -15,6 +15,7 @@ import bullConfig from './config/bull.config';
 import videoCompressionQueueConfig from './config/video-compression-queue.config';
 import throttlersConfig from './config/throttlers.config';
 import googleConfig from './config/google.config';
+import multerConfig from './config/multer.config';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import googleConfig from './config/google.config';
         databaseConfig,
         videoCompressionQueueConfig,
         throttlersConfig,
+        multerConfig,
       ],
     }),
     ThrottlerModule.forRoot(throttlersConfig()),

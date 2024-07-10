@@ -7,13 +7,10 @@ import * as passport from 'passport';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api');
-
   const config = new DocumentBuilder()
     .setTitle('API Documentation')
     .setDescription('API description')
     .setVersion('1.0')
-    .addTag('API')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
